@@ -1,3 +1,8 @@
 <li>
     <%= player.player_name %>
+    <ul>
+        <li>
+            <%= link_to "Edit player information", edit_team_player_path(params[:id])%>
+        </li>
+    </ul>
 </li>
