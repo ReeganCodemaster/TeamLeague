@@ -40,9 +40,10 @@ class PlayersController < ApplicationController
     end
 
     def set_player 
-        @player = @team.players.find(params[:id])
+        @player = Player.find(params[:id])
     end
+
     def player_params
-        params.require(:player).permit(:player_name, :coordinator)
+        params.require(:player).permit(:player_name)
     end
 end
