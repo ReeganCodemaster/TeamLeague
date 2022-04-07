@@ -35,6 +35,15 @@ class PlayersController < ApplicationController
         end
     end
 
+    def destroy 
+        @team = Team.find(params[:team_id])
+        @player = @team.players.find(params[:id])
+
+        @player.destroy
+
+        redirect_to @team, status: 303
+    end
+
     private
     
     def player_params
