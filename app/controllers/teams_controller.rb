@@ -21,6 +21,20 @@ class TeamsController < ApplicationController
         end
     end
 
+    def edit
+        @team = Team.find(params[:id])
+    end
+
+    def create
+        @team = Team.find(params[:id])
+
+        if @team.update(teams_params)
+            redirect_to @team
+        else
+            render :edit, status: :unprocessable_entity
+        end
+    end
+
     private
 
     def teams_params
