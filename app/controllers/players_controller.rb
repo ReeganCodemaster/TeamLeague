@@ -19,6 +19,22 @@ class PlayersController < ApplicationController
         end
     end
     
+    def edit
+        @team = Team.find(params[:team_id])
+        @player = @team.players.find(params[:id])
+    end
+
+    def update
+        @team = Team.find(params[:team_id])
+        @player = @team.players.find(params[:id])
+
+        if @player.update(player_params)
+            redirect_to @team
+        else
+            render :edit , status: :unprocessable_entity
+        end
+    end
+
     private
     
     def player_params
