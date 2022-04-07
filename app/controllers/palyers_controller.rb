@@ -1,0 +1,2 @@
+class PalyersController < ApplicationController
+end
