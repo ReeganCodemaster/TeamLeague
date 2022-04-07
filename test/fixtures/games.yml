@@ -3,11 +3,11 @@
 one:
   team_1: one
   team_2: one
-  team_1_score: 1
-  team_2_score: 1
+  team_1_score: MyString
+  team_2_score: MyString
 
 two:
   team_1: two
   team_2: two
-  team_1_score: 1
-  team_2_score: 1
+  team_1_score: MyString
+  team_2_score: MyString
