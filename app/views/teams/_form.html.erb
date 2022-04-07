@@ -2,6 +2,13 @@
     <div>
         <%= form.label :title%>
         <%= form.text_field :title%>
+        <ul>
+            <% team.errors.full_messages_for(:title).each do |error| %>
+                <li>
+                    <%= error %>
+                </li>
+            <% end %>
+        </ul>
     </div>
     <div>
         <%= form.submit %>
