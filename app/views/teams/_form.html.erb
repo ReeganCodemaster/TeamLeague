@@ -10,6 +10,16 @@
             <% end %>
         </ul>
     </div>
+    <%= form.label :coordinator%>
+        <%= form.text_field :coordinator%>
+        <ul>
+            <% team.errors.full_messages_for(:coordinator).each do |error| %>
+                <li>
+                    <%= error %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
     <div>
         <%= form.submit %>
     </div>
