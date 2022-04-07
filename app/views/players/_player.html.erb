@@ -4,5 +4,11 @@
         <li>
             <%= link_to "Edit player information", edit_team_player_path(params[:id])%>
         </li>
+        <li>
+            <%= link_to "Delete player", [player.team, player], data:{
+                turbo_method:"delete",
+                turbo_confirm:"Are you sure?"
+            }%>
+        </li>
     </ul>
 </li>
