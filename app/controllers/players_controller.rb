@@ -1,7 +1,6 @@
 class PlayersController < ApplicationController
-    def show
-        @player = player.find(params[:id])
-    end
+    before_action :set_player, only: %i[show edit update destroy]
+    before_action :set_team
 
     def new 
         @team = Team.find(params[:team_id])
@@ -19,15 +18,8 @@ class PlayersController < ApplicationController
         end
     end
     
-    def edit
-        @team = Team.find(params[:team_id])
-        @player = @team.players.find(params[:id])
-    end
 
     def update
-        @team = Team.find(params[:team_id])
-        @player = @team.players.find(params[:id])
-
         if @player.update(player_params)
             redirect_to @team
         else
@@ -36,16 +28,20 @@ class PlayersController < ApplicationController
     end
 
     def destroy 
-        @team = Team.find(params[:team_id])
-        @player = @team.players.find(params[:id])
-
         @player.destroy
 
         redirect_to @team, status: 303
     end
 
     private
-    
+
+    def set_team 
+        @team = Team.find(params[:team_id])
+    end
+
+    def set_player 
+        @player = @team.players.find(params[:id])
+    end
     def player_params
         params.require(:player).permit(:player_name, :coordinator)
     end
