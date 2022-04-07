@@ -3,9 +3,7 @@
 one:
   player_name: MyString
   team: one
-  coordinator: false
 
 two:
   player_name: MyString
   team: two
-  coordinator: false
