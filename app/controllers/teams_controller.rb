@@ -35,6 +35,13 @@ class TeamsController < ApplicationController
         end
     end
 
+    def destroy
+        @team = Team.find(params[:id])
+        @team.destroy
+
+        redirect_to root_path, status: 303
+    end
+
     private
 
     def teams_params
