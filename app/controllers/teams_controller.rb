@@ -25,7 +25,7 @@ class TeamsController < ApplicationController
         @team = Team.find(params[:id])
     end
 
-    def create
+    def update
         @team = Team.find(params[:id])
 
         if @team.update(teams_params)
