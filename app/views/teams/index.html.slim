@@ -1,0 +1,6 @@
+h1 Teams
+ul
+  - @teams.each do |team|
+    li
+      = link_to team.title, team
+= link_to "Add a new team", new_team_path
