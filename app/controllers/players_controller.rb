@@ -18,8 +18,9 @@ class PlayersController < ApplicationController
             render :new, status: :unprocessable_entity
         end
     end
-    
-
+    def edit
+        @coordinator = @team.password == params[:password] ? true : false
+    end
     def update
         if @player.update(player_params)
             redirect_to @team
