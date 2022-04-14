@@ -1,0 +1,11 @@
+h1= @team.title
+h2
+  | Coordinator: #{@team.coordinator}
+ul
+  li
+    = link_to "Edit team name", edit_team_path
+  li
+    = link_to "Delete", team_path(@team), data: {turbo_method:"delete", turbo_confirm:"Are you sure?"}                                           
+ul
+  = render @team.players
+= link_to "Add a new player ", new_team_player_path(@team)
