@@ -1,0 +1,18 @@
+= form_with model:team do |form|
+  div
+    = form.label :title
+    br
+    = form.text_field :title
+    ul
+      - team.errors.full_messages_for(:title).each do |error|
+        li
+          = error
+  = form.label :coordinator
+  br
+  = form.text_field :coordinator
+  ul
+    - team.errors.full_messages_for(:coordinator).each do |error|
+      li
+        = error
+  div
+    = form.submit
