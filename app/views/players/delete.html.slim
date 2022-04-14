@@ -1,0 +1,11 @@
+-if !@coordinator
+  = form_with method: :get do |form|
+    div 
+      = form.label :password
+      br
+      = form.password_field :password 
+    div 
+      = form.submit "Login"
+-if @coordinator
+  h1 Player: #{@player.player_name}
+  = link_to "Delete player", [@player.team, @player], data: { turbo_method:"delete",turbo_confirm:"Are you sure?" }   

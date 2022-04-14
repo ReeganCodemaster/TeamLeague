@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-    before_action :set_player, only: %i[show edit update destroy]
+    before_action :set_player, only: %i[show edit update destroy delete]
     before_action :set_team
 
     def new  
@@ -29,6 +29,10 @@ class PlayersController < ApplicationController
         end
     end
 
+    def delete
+        @coordinator = @team.password == params[:password] ? true : false
+    end
+    
     def destroy 
         @player.destroy
 
