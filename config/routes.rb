@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :players do
       get :delete, on: :member
     end
+    resources :games
   end
   # Defines the root path route ("/")
   # root "articles#index"
