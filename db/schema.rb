@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_07_104707) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_14_101400) do
   create_table "games", force: :cascade do |t|
     t.integer "team_1_id", null: false
     t.integer "team_2_id", null: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_104707) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "coordinator"
+    t.string "password"
   end
 
   add_foreign_key "games", "team_1s"

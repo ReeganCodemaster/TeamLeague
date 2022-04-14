@@ -1,2 +1,11 @@
-h1 Add a new player
-= render "form", {team:@team, player:@player}
+-if !@coordinator
+  = form_with method: :get do |form|
+    div 
+      = form.label :password
+      br
+      = form.password_field :password 
+    div 
+      = form.submit "Login"
+-if @coordinator
+  h1 Add a new player
+  = render "form", {team:@team, player:@player}
