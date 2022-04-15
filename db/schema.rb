@@ -14,8 +14,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_14_101400) do
   create_table "games", force: :cascade do |t|
     t.integer "team_1_id", null: false
     t.integer "team_2_id", null: false
-    t.string "team_1_score"
-    t.string "team_2_score"
+    t.integer "team_1_score"
+    t.integer "team_2_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_1_id"], name: "index_games_on_team_1_id"
