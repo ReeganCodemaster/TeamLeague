@@ -17,4 +17,9 @@ table
     th Team2
     th Team1 score
     th Team2 score
-  = render @team.games
+    th
+    th
+  - @games.each do |game|
+    = render game 
+
+= link_to "Add a new game", new_team_game_path(@team)
