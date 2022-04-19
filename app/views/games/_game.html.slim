@@ -7,3 +7,7 @@ tr
     = game.team_1_score
   td
     = game.team_2_score
+  td 
+   = link_to "Edit game details", edit_team_game_path(@team.id, game.id)
+  td
+   = link_to  "Delete game", team_game_path(@team.id, game.id), data:{ turbo_method:'delete', turbo_confirm:'Are you sure?'} 
