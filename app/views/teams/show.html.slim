@@ -9,11 +9,12 @@ ul
   = render @team.players
 = link_to "Add a new player ", new_team_player_path(@team)
 
-hr style="width=100%"
+hr
 h1 Games
-table style="width100%; border:1px solid black;"
+table
   tr
     th Team1
     th Team2
     th Team1 score
     th Team2 score
+  = render @team.games
