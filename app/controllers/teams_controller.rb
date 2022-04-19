@@ -6,6 +6,7 @@ class TeamsController < ApplicationController
 
     def show
         @team = Team.find(params[:id])
+        @games = Game.where(team_1_id:params[:id]).or(Game.where(team_2_id:params[:id]))
     end
 
     def new
