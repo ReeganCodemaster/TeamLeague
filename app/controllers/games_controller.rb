@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[show edit update destroy delete]
+  before_action :set_game, only: %i[show edit update]
   before_action :set_team
 
   def new
@@ -15,6 +15,22 @@ class GamesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  
+  def update
+    if @game.update(game_params)
+      redirect_to @team
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    
+    @game = Game.find(params[:id])
+    @game.delete
+    
+    redirect_to @team
+  end
 
   private
   def set_team
@@ -22,7 +38,7 @@ class GamesController < ApplicationController
   end
 
   def set_game
-    @game = @team.games.find(params[:id])
+    @game = Game.find(params[:id])
   end
 
   def game_params
