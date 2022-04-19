@@ -2,6 +2,20 @@ class GamesController < ApplicationController
   before_action :set_game, only: %i[show edit update destroy delete]
   before_action :set_team
 
+  def new
+    @game = Game.new()
+  end
+
+  def create
+    @game = Game.new(game_params)
+
+    if @game.save
+      redirect_to @team
+    else 
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
   def set_team
     @team = Team.find(params[:team_id])
@@ -11,7 +25,7 @@ class GamesController < ApplicationController
     @game = @team.games.find(params[:id])
   end
 
-  def games_params
-    params.require(:games).permit
+  def game_params
+    params.require(:game).permit(:team_1_id , :team_2_id, :team_1_score, :team_2_score)
   end
 end
