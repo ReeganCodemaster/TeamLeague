@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[show edit update]
+  before_action :set_game, only: %i[show edit update destroy]
   before_action :set_team
 
   def new
@@ -25,7 +25,6 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    @game = Game.find(params[:id])
     @game.destroy
     respond_to do |format|
       format.js {render inline: "location.reload();" }
