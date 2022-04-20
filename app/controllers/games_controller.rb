@@ -13,8 +13,9 @@ class GamesController < ApplicationController
         points[game.team_1_id] = service_hash[game.team_1_id]
       elsif !@points[game.team_1_id].empty? and @points[game.team_2_id].empty?
         points[game.team_2_id] = service_hash[game.team_2_id]
-    end 
-    
+      end 
+    end
+
   end
 
   def new
