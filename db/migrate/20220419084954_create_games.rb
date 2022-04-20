@@ -5,7 +5,7 @@ class CreateGames < ActiveRecord::Migration[7.0]
       t.references :team_2, foreign_key: {to_table: :teams}
       t.integer :team_1_score
       t.integer :team_2_score
-
+      t.integer :points
       t.timestamps
     end
   end
