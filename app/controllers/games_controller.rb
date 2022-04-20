@@ -26,9 +26,8 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
-    respond_to do |format|
-      format.js {render inline: "location.reload();" }
-    end
+    
+    redirect_to team_games_path(@team)
   end
 
   private
