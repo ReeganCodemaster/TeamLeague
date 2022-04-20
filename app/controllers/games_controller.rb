@@ -25,11 +25,11 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    
     @game = Game.find(params[:id])
-    @game.delete
-    
-    redirect_to @team
+    @game.destroy
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
   end
 
   private
