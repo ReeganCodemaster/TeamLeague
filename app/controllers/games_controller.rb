@@ -4,18 +4,19 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all
-    @points = {}
+    @points = Hash.new()
     @games.each do |game|
-      service_hash = PointsService.call(game.team_1_id, game.team_2_id)  
-      if @points[game.team_1_id].empty? and @points[game.team_2_id].empty?
-        points >> service_hash
-      elsif @points[game.team_1_id].empty? and !@points[game.team_2_id].empty?
-        points[game.team_1_id] = service_hash[game.team_1_id]
-      elsif !@points[game.team_1_id].empty? and @points[game.team_2_id].empty?
-        points[game.team_2_id] = service_hash[game.team_2_id]
+      point_service = PointsService.new(game.team_1_id, game.team_2_id) 
+      points_hash = point_service.call()
+      
+      if @points.has_key? game.team_1_id == false and @points.has_key? game.team_2_id == false
+        @points.merge(points_hash)
+      elsif (@points.has_key? game.team_1_id) and (@points.has_key? game.team_2_id == false)
+        @points[game.team_1_id] = points_hash[game.team_1_id]
+      elsif (@points.has_key? game.team_1_id == false) and (@points.has_key? game.team_2_id)
+        @points[game.team_2_id] = points_hash[game.team_2_id]
       end 
     end
-
   end
 
   def new
