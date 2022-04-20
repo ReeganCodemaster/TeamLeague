@@ -16,7 +16,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_084954) do
     t.integer "team_2_id"
     t.integer "team_1_score"
     t.integer "team_2_score"
-    t.integer "points"
+    t.integer "team_1_points"
+    t.integer "team_2_points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_1_id"], name: "index_games_on_team_1_id"
