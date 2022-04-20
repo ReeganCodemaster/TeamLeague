@@ -1,4 +1,5 @@
 class PointsService
+  
   def initialize(team_1_id, team_2_id)
     @team_1_id = team_1_id
     @team_2_id = team_2_id
