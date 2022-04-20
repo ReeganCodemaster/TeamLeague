@@ -1,0 +1,11 @@
+table
+tr 
+  th Team
+  th Points
+
+- points.each do |team_id, point|
+  tr
+    td 
+      = Team.find(team_id).title
+    td
+      = point
