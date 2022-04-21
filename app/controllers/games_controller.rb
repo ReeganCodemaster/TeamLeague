@@ -8,14 +8,7 @@ class GamesController < ApplicationController
     @games.each do |game|
       point_service = PointsService.new(game.team_1_id, game.team_2_id) 
       points_hash = point_service.call()
-      
-      if @points.has_key? game.team_1_id == false and @points.has_key? game.team_2_id == false
-        @points.merge(points_hash)
-      elsif (@points.has_key? game.team_1_id) and (@points.has_key? game.team_2_id == false)
-        @points[game.team_1_id] = points_hash[game.team_1_id]
-      elsif (@points.has_key? game.team_1_id == false) and (@points.has_key? game.team_2_id)
-        @points[game.team_2_id] = points_hash[game.team_2_id]
-      end 
+      @points.merge!(points_hash) 
     end
   end
 
