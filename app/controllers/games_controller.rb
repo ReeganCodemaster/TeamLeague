@@ -19,14 +19,14 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
-      redirect_to @team
+      redirect_to @game.team_1
     else 
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @team = reqest.referer
+    @team = request.referer
   end
 
   def update
