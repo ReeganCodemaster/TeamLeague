@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: %i[show edit update destroy]
-  before_action :set_team
+  # before_action :set_team
 
   def index
     @games = Game.all
@@ -20,7 +20,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
-      redirect_to @team
+      session[:return_to] ||= request.referer
     else 
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +28,8 @@ class GamesController < ApplicationController
   
   def update
     if @game.update(game_params)
-      redirect_to @team
+      session[:return_to] ||= request.referer
+      # redirect_to @team
     else
       render :edit, status: :unprocessable_entity
     end
@@ -37,13 +38,14 @@ class GamesController < ApplicationController
   def destroy
     @game.destroy
     
-    redirect_to team_games_path(@team)
+    session[:return_to] ||= request.referer
+    # redirect_to team_games_path(@team)
   end
 
   private
-  def set_team
-    @team = Team.find(params[:team_id])
-  end
+  # def set_team
+  #   @team = Team.find(params[:team_id])
+  # end
 
   def set_game
     @game = Game.find(params[:id])
