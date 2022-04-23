@@ -4,9 +4,9 @@ table
     th Team
     th Points
 
-  - @points.each do |team_id, point|
+  - @points.each do |team|
     tr
       td 
-        = Team.find(team_id).title
+        = Team.find(team[0]).title
       td
-        = point
+        = team[1]
