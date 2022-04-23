@@ -1,12 +1,12 @@
 -if !@coordinator
   = form_with method: :get do |form|
-    div 
-      = form.label :password
+    div class='mb3'
+      = form.label :password, class:'form-label'
       br
-      = form.password_field :password 
+      = form.password_field :password ,class:'form-control'
 
-    div 
-      = form.submit 'Login'
+    div class='mb3'
+      = form.submit 'Login',class:'btn btn-primary btn-md btn-dark btn-login'
 -if @coordinator
 
   h1 Add a new player
