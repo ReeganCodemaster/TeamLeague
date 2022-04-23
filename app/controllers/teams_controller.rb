@@ -39,6 +39,7 @@ class TeamsController < ApplicationController
 
   def destroy
     @team = Team.find(params[:id])
+    Game.where(team_1_id:@team.id).or(Game.where(team_2_id:@team.id)).destroy_all
     @team.destroy
     redirect_to root_path, status: 303
   end
