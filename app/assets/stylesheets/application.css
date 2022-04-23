@@ -43,3 +43,9 @@ form {
 input.btn {
   margin-left: 0;
 }
+.player {
+  text-align: left;
+}
+.btn-player {
+   margin-left: 0;
+ }

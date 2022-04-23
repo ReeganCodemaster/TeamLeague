@@ -1,8 +1,7 @@
-li
-  = player.player_name
-  ul
-    li
-      = link_to 'Edit player information', edit_team_player_path(params[:id],player.id)
-      
-    li
-      = link_to 'Delete player', team_player_path(@team.id, player.id), data:{turbo_method:'delete', turbo_confirm:'are you sure'}
+li class='list-group-item'
+  
+  div class='player'
+    = player.player_name
+    = link_to 'Edit player information', edit_team_player_path(params[:id],player.id), class:'btn btn-primary btn-md btn-dark btn-player', role:'button'
+    br
+    = link_to 'Delete player', team_player_path(@team.id, player.id), data:{turbo_method:'delete', turbo_confirm:'are you sure'}, class:'btn btn-primary btn-md btn-dark btn-player', role:'button'
