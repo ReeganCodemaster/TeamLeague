@@ -1,13 +1,18 @@
 tr
   td
     = game.team_1.title
+
   td
     = game.team_2.title
+
   td
     = game.team_1_score
+
   td
     = game.team_2_score
+
   td 
    = link_to "Edit game details", edit_game_path(game.id)
+   
   td
    = link_to  "Delete game", game_path(game.id), data:{ turbo_method:'delete', turbo_confirm:'Are you sure?'} 

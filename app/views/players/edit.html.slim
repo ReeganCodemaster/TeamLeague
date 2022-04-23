@@ -4,8 +4,10 @@
       = form.label :password
       br
       = form.password_field :password 
+
     div 
       = form.submit "Login"
+      
 -if @coordinator
   h1 Edit player information
   = render "form", {team:@team, player:@player}

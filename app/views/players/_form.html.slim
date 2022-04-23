@@ -3,5 +3,10 @@
     = form.label :player_name
     br
     = form.text_field :player_name
+    ul
+      - player.errors.full_messages_for(:player_name).each do |error|
+        li
+          = error
+
   div
     = form.submit
