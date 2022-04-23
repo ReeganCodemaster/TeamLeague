@@ -1,25 +1,28 @@
 h1= @team.title
 h2 Coordinator: #{@team.coordinator}
-ul
-  li
-    = link_to 'Edit team name', edit_team_path
-  li
-    = link_to 'Delete', team_path(@team), data: {turbo_method:'delete', turbo_confirm:'Are you sure?'}                                           
+
+
+= link_to 'Edit team name', edit_team_path, class:'btn btn-primary btn-md btn-dark', role:'button'
+br
+= link_to 'Delete', team_path(@team), data: {turbo_method:'delete', turbo_confirm:'Are you sure?'}, class:'btn btn-primary btn-md btn-dark add-team', role:'button'                                           
+br
 ul
   = render @team.players
-= link_to 'Add a new player', new_team_player_path(@team)
 
-hr
+= link_to 'Add a new player', new_team_player_path(@team),  class:'btn btn-primary btn-md btn-dark', role:'button'
+br
+br
 h1 Games
-table
-  tr
-    th Team1
-    th Team2
-    th Team1 score
-    th Team2 score
-    th
-    th
+table class='table'
+  thead class='table-dark' 
+    tr
+      th Team1
+      th Team2
+      th Team1 score
+      th Team2 score
+      th
+      th
   - @games.each do |game|
     = render game 
 
-= link_to 'Add a new game', new_game_path
+= link_to 'Add a new game', new_game_path, class:'btn btn-primary btn-md btn-dark', role:'button'
