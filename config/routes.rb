@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root "teams#index"
-  
+  root 'teams#index;'
+
   resources :teams do 
     resources :players do
       get :delete, on: :member
