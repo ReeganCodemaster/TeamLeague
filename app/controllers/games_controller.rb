@@ -7,8 +7,18 @@ class GamesController < ApplicationController
     @games.each do |game|
       point_service = PointsService.new(game.team_1_id, game.team_2_id) 
       points_hash = point_service.call()
-      @points.merge!(points_hash) 
-    end
+
+      if points_hash[game.team_1_id] > 0 and points_hash[game.team_2_id] > 0
+        @points.merge!(points_hash) 
+      elsif points_hash[game.team_1_id] > 0 and points_hash[game.team_2_id] = 0
+        @points[game.team_1_id] = points_hash[game.team_1_id]
+        @points[game.team_2_id] = @points[game.team_2_id].to_i + points_hash[game.team_2_id]
+      elsif points_hash[game.team_1_id] = 0 and points_hash[game.team_2_id] > 0
+        @points[game.team_2_id] = points_hash[game.team_2_id]
+        @points[game.team_1_id] = @points[game.team_1_id].to_i + points_hash[game.team_1_id]
+      end
+    end 
+    @points = @points.sort_by{|key, value| value}.reverse
   end
 
   def new
