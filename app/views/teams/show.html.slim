@@ -2,9 +2,9 @@ h1= @team.title
 h2 Coordinator: #{@team.coordinator}
 
 
-= link_to 'Edit team name', edit_team_path, class:'btn btn-primary btn-md btn-dark', role:'button'
+= link_to 'Edit team details', edit_team_path, class:'btn btn-primary btn-md btn-dark', role:'button'
 br
-= link_to 'Delete', team_path(@team), data: {turbo_method:'delete', turbo_confirm:'Are you sure?'}, class:'btn btn-primary btn-md btn-dark add-team', role:'button'                                           
+= link_to 'Delete team', team_path(@team), data: {turbo_method:'delete', turbo_confirm:'Are you sure?'}, class:'btn btn-primary btn-md btn-dark add-team', role:'button'                                           
 br
 ul
   = render @team.players
