@@ -1,29 +1,29 @@
 = form_with model:team do |form|
-  div
-    = form.label :title
+  div class='mb-3'
+    = form.label :title, class:'form-label'
     br
-    = form.text_field :title
+    = form.text_field :title, class:'form-control'
     ul
       - team.errors.full_messages_for(:title).each do |error|
         li
           = error
-  div
-    = form.label :coordinator
+  div class='mb-3'
+    = form.label :coordinator, class:'form-label'
     br
-    = form.text_field :coordinator
+    = form.text_field :coordinator, class:'form-control'
     ul
       - team.errors.full_messages_for(:coordinator).each do |error|
         li
           = error
 
-  div
-    = form.label :password
+  div class='mb-3'
+    = form.label :password, class:'form-label'
     br
-    = form.text_field :password
+    = form.text_field :password, class:'form-control'
     ul
       - team.errors.full_messages_for(:password).each do |error|
         li
           = error
           
-  div
-    = form.submit
+  div class='mb-3'
+    = form.submit 'Create Team', class:'btn btn-primary btn-lg btn-dark'
