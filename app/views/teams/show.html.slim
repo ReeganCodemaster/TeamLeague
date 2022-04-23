@@ -25,4 +25,4 @@ table class='table'
   - @games.each do |game|
     = render game 
 
-= link_to 'Add a new game', new_game_path, class:'btn btn-primary btn-md btn-dark', role:'button'
+= link_to 'Add a new game', new_game_path(team_id:@team.id), class:'btn btn-primary btn-md btn-dark', role:'button'

@@ -23,7 +23,7 @@ class GamesController < ApplicationController
   end
 
   def new
-    @game = Game.new()
+    @game = Game.new(team_1_id:params[:team_id])
   end
 
   def create
@@ -42,7 +42,6 @@ class GamesController < ApplicationController
 
   def update
     if @game.update(game_params)
-     @team_id = params[:id]
       redirect_to @team
     else
       render :edit, status: :unprocessable_entity
