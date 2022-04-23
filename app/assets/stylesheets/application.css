@@ -40,6 +40,6 @@ form {
   font-size: larger;
 }
 
-.btn-login {
+input.btn {
   margin-left: 0;
 }

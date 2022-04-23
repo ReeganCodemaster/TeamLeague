@@ -1,12 +1,12 @@
 = form_with model:[team, player] do |form|
-  div
-    = form.label :player_name
+  div class='mb-3'
+    = form.label :player_name, class:'form-label'
     br
-    = form.text_field :player_name
+    = form.text_field :player_name, class:'form-control'
     ul
       - player.errors.full_messages_for(:player_name).each do |error|
         li
           = error
 
-  div
-    = form.submit
+  div class='mb-3'
+    = form.submit 'Submit', class:'btn btn-primary btn-lg btn-dark'
