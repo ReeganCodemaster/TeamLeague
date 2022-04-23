@@ -1,6 +1,7 @@
-h1 Teams
+h1 class='teams-heading'Teams 
 ul
   - @teams.each do |team|
-    li
+    li class='list-group-item'
       = link_to team.title, team
-= link_to 'Add a new team', new_team_path
+= link_to 'Add a new team', new_team_path, class:'btn btn-primary btn-md btn-dark', role:'button'
+
