@@ -12,7 +12,7 @@ tr
     = game.team_2_score
 
   td 
-   = link_to 'Edit game details', edit_game_path(game.id), class:'btn btn-primary btn-sm btn-dark table-button', role:'button'
+   = link_to 'Edit game details', edit_game_path(game.id), class:'btn btn-primary btn-sm btn-success table-button', role:'button'
    
   td
-   = link_to  'Delete game', game_path(game.id), data:{ turbo_method:'delete', turbo_confirm:'Are you sure?'},class:'btn btn-primary btn-sm btn-dark ', role:'button' 
+   = link_to  'Delete game', game_path(game.id), data:{ turbo_method:'delete', turbo_confirm:'Are you sure?'},class:'btn btn-primary btn-sm btn-success table-button', role:'button' 

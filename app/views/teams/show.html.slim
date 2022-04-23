@@ -2,27 +2,26 @@ h1= @team.title
 h2 Coordinator: #{@team.coordinator}
 
 
-= link_to 'Edit team details', edit_team_path, class:'btn btn-primary btn-md btn-dark', role:'button'
+= link_to 'Edit team details', edit_team_path, class:'btn btn-primary btn-md btn-success', role:'button'
 br
-= link_to 'Delete team', team_path(@team), data: {turbo_method:'delete', turbo_confirm:'Are you sure?'}, class:'btn btn-primary btn-md btn-dark add-team', role:'button'                                           
+= link_to 'Delete team', team_path(@team), data: {turbo_method:'delete', turbo_confirm:'Are you sure?'}, class:'btn btn-primary btn-md btn-success add-team', role:'button'                                           
 br
 ul
   = render @team.players
 
-= link_to 'Add a new player', new_team_player_path(@team),  class:'btn btn-primary btn-md btn-dark', role:'button'
+= link_to 'Add a new player', new_team_player_path(@team),  class:'btn btn-primary btn-md btn-success', role:'button'
 br
 br
 h1 Games
-table class='table'
-  thead class='table-dark' 
-    tr
-      th Team1
-      th Team2
-      th Team1 score
-      th Team2 score
-      th
-      th
+table class="table table-dark table-striped"
+  tr
+    th Team1
+    th Team2
+    th Team1 score
+    th Team2 score
+    th
+    th
   - @games.each do |game|
     = render game 
 
-= link_to 'Add a new game', new_game_path(team_id:@team.id), class:'btn btn-primary btn-md btn-dark', role:'button'
+= link_to 'Add a new game', new_game_path(team_id:@team.id), class:'btn btn-primary btn-md btn-success', role:'button'

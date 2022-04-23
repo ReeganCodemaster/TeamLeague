@@ -49,3 +49,11 @@ input.btn {
 .btn-player {
    margin-left: 0;
  }
+ body {
+  color: #eee;
+  background: #121212;
+ }
+ .list-group-item {
+  color: #eee;
+  background: #363636;
+ }
