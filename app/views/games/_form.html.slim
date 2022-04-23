@@ -1,23 +1,23 @@
 = form_with model: game do |form|
-  div
+  div class='mb-3'
     =form.label :team_1_id
     br
     =form.select :team_1_id , Team.pluck(:title, :id) 
 
-  div
+  div class='mb-3'
     =form.label :team_2_id
     br
     =form.select :team_2_id , Team.pluck(:title, :id)
 
-  div
-    =form.label :team_1_score
+  div class='mb-3'
+    =form.label :team_1_score, class:'form-label'
     br
-    =form.number_field :team_1_score
+    =form.number_field :team_1_score, class:'form-control'
 
-  div
-    =form.label :team_2_score
+  div class='mb-3'
+    =form.label :team_2_score, class:'form-label'
     br
-    =form.number_field :team_2_score
+    =form.number_field :team_2_score, class:'form-control'
     
-  div
-    = form.submit
+  div class='mb-3'
+    = form.submit 'Submit', class:'btn btn-primary btn-lg btn-dark'
