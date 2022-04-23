@@ -4,6 +4,7 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
     @points = Hash.new()
+
     @games.each do |game|
       point_service = PointsService.new(game.team_1_id, game.team_2_id) 
       points_hash = point_service.call()
@@ -50,7 +51,6 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
-
     redirect_to games_path(@game)
   end
 
