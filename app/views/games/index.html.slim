@@ -4,10 +4,11 @@ table class='table'
     tr 
       th Team
       th Points
-  - @points.each do |team|
-    tr
-      td 
-        = Team.find(team[0]).title
-        
-      td
-        = team[1]
+  tbody class='table-success'
+    - @points.each do |team|
+      tr
+        td 
+          = Team.find(team[0]).title
+          
+        td
+          = team[1]
