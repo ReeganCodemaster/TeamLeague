@@ -53,6 +53,18 @@ class GamesController < ApplicationController
     redirect_to games_path(@game)
   end
 
+  def tournament 
+    @team_num = params[:team_num]   
+    k = 0
+    @points.each do |team|
+      k += 1  
+      prev_team = team[0]
+      if k <= @team_num
+        
+      end
+    end
+  end
+
   private
   def set_game
     @game = Game.find(params[:id])
