@@ -59,10 +59,12 @@ class GamesController < ApplicationController
     k = 0
     @points.each do |team|
       k += 1  
-      prev_team = team[0]
+      
       if k <= @team_num
         if k % 2 == 0
           match_ups[prev_team] = team[0]
+        else
+          prev_team = team[0]
         end
       end
     end
