@@ -41,7 +41,7 @@ class GamesController < ApplicationController
 
     point_service = PointsService.new() 
 
-    @match_ups =  {} 
+    @match_ups =  Hash.new 
     @team_num = params[:team_num] 
     if @team_num != nil  
       k = 0
