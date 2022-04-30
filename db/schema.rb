@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_19_084954) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_30_164522) do
   create_table "games", force: :cascade do |t|
     t.integer "team_1_id"
     t.integer "team_2_id"
@@ -20,8 +20,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_084954) do
     t.integer "team_2_points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tournament_id"
     t.index ["team_1_id"], name: "index_games_on_team_1_id"
     t.index ["team_2_id"], name: "index_games_on_team_2_id"
+    t.index ["tournament_id"], name: "index_games_on_tournament_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -40,7 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_084954) do
     t.string "password"
   end
 
+  create_table "tournaments", force: :cascade do |t|
+    t.integer "team_num"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "games", "teams", column: "team_1_id"
   add_foreign_key "games", "teams", column: "team_2_id"
+  add_foreign_key "games", "tournaments"
   add_foreign_key "players", "teams"
 end
