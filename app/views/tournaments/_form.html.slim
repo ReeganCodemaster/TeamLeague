@@ -1,0 +1,10 @@
+= form_with model: tournament do |form|
+  div class='mb-3'
+    = form.label :title, class:'form-label'
+    = form.text_field :title, class:'form-control'
+
+  div class='mb-3'
+    = form.label 'Number of Teams', class:'form-label'
+    = form.number_field :team_num, class:'form-control'
+  div class='mb-3'
+    = form.submit 'Submit', class:'btn btn-md btn-success'
