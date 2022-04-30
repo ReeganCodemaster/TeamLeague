@@ -3,4 +3,6 @@ ul
   - @tournaments.each do |tournament|
     li class='list-group-item'
       = link_to tournament.title, tournament_path(tournament)
+
+= link_to 'Create a tournament', new_tournament_path, class:'btn btn-md btn-success'
     
