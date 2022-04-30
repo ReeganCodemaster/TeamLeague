@@ -43,6 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_30_164522) do
   end
 
   create_table "tournaments", force: :cascade do |t|
+    t.string "title"
     t.integer "team_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
