@@ -2,5 +2,5 @@ h1 Tournaments
 ul 
   - @tournaments.each do |tournament|
     li class='list-group-item'
-      tournament.title
+      = link_to tournament.title, tournament_path(tournament)
     
