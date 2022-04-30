@@ -4,6 +4,9 @@ class Game < ApplicationRecord
 
   before_save :generate_points
 
+  validates :team_1_score, numericality: {greater_than_or_equal_to: 0, allow_nil:true}
+  validates :team_2_score, numericality: {greater_than_or_equal_to: 0, allow_nil:true}
+
   private
   def generate_points
     if team_1_score > team_2_score
