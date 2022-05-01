@@ -1,5 +1,5 @@
 class TournamentsController < ApplicationController
-  before_action :set_tournament, only: %i[show edit update destroy delete]
+  before_action :set_tournament, only: %i[show edit update destroy]
   
   def index
     @tournaments = Tournament.all
@@ -25,6 +25,12 @@ class TournamentsController < ApplicationController
     else
       render :edot, status: :unprocessable_entity
     end
+  end
+  
+  def destroy
+    @tournament.destroy
+
+    redirect_to '/tournaments'
   end
   
   private
