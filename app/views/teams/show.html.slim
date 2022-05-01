@@ -26,4 +26,4 @@ table class='table table-stripped'
     - @games.each do |game|
         = render game 
 
-= link_to 'Add a new game', new_game_path(team_id:@team.id), class:'btn  btn-md btn-success', role:'button'
+= link_to 'Add a new game', new_game_path(@team), class:'btn  btn-md btn-success', role:'button'
