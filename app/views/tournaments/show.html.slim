@@ -1,1 +1,5 @@
 h1 #{@tournament.title}
+
+= link_to 'Edit tournament', edit_tournament_path(@tournament), class:'btn btn-md btn-success'
+br
+= link_to 'Delete tournament', tournament_path(@tournament), data:{turbo_method:'delete', tirbo_confirm:'Are you sure?'}, class:'btn btn-md btn-success'
