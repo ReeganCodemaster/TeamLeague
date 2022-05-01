@@ -23,14 +23,14 @@ class TournamentsController < ApplicationController
     if @tournament.update(tournament_params)
       redirect_to @tournament
     else
-      render :edot, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
   
   def destroy
     @tournament.destroy
 
-    redirect_to '/tournaments'
+    redirect_to '/tournaments', status:303
   end
   
   private
