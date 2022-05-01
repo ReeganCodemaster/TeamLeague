@@ -19,6 +19,14 @@ class TournamentsController < ApplicationController
     end
   end
   
+  def update
+    if @tournament.update(tournament_params)
+      redirect_to @tournament
+    else
+      render :edot, status: :unprocessable_entity
+    end
+  end
+  
   private
   def set_tournament  
     @tournament = Tournament.find(params[:id])
