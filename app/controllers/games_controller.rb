@@ -21,7 +21,7 @@ class GamesController < ApplicationController
   end
 
   def edit
-    @team = request.referer
+    @team = params[:team_id]
   end
 
   def update
