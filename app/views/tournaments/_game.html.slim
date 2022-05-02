@@ -1,2 +1,5 @@
-td #{Team.find(@teams[i][0]).title}
-td #{Team.find(@teams[i+1][0]).title}
+- if  history.include?([@teams[match_up][0],@teams[match_up+1][0]]) == false
+  td #{Team.find(@teams[match_up][0]).title}
+  td #{Team.find(@teams[match_up+1][0]).title}
+  td 
+  td
