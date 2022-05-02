@@ -5,6 +5,18 @@ class TournamentsController < ApplicationController
     @tournaments = Tournament.all
   end
   
+  def show 
+    @team_num = @tournament.team_num
+    
+    team_fact = @tournament.team_num
+  	team_fact = @tournament.team_num.downto(1) {|x| team_fact *= x }
+    composite_fact = (@tournament.team_num - (@tournament.team_num - 1))
+    composite_fact = (@tournament.team_num - (@tournament.team_num - 1)).downto(1) {|x| composite_fact *= x }
+    @rounds = team_fact / (2 * composite_fact)
+    points_service = PointsService.new
+    @teams = points_service.call
+  end
+  
   def new
     @tournament = Tournament.new()
   end
