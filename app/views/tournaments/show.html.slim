@@ -1,17 +1,22 @@
 h1 #{@tournament.title}
-
-h1 Games
-table class='table table-stripped'
-  thead class='table-dark'
-    tr
-      th Team1
-      th Team2
-      th Team1 score
-      th Team2 score
-      th
-  tbody class='table-success'
-
-
+- @rounds.times do |num|
+  h2 Round #{num+1}
+  table class='table table-stripped'
+    thead class='table-dark'
+      tr
+        th Team1
+        th Team2
+        th Team1 score
+        th Team2 score
+        th
+    tbody class='table-success'
+    - i = 0
+    - @teams.each do 
+      - if i <= (@tournament.team_num / 2)
+        = render 'game', i:i
+      i += 1
+    end
+  br
 
 = link_to 'Edit tournament', edit_tournament_path(@tournament), class:'btn btn-md btn-success'
 br
