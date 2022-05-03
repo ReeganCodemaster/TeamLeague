@@ -3,14 +3,14 @@
     = form.label :title, class:'form-label'
     = form.text_field :title, class:'form-control'
     ul
-      = tournament.errors.full_messages_for(:title).each do |error|
+      - tournament.errors.full_messages_for(:title).each do |error|
         li
           = error
   div class='mb-3'
     = form.label 'Number of Teams', class:'form-label'
     = form.number_field :team_num, class:'form-control'
     ul
-      = tournament.errors.full_messages_for(:title).each do |error|
+      - tournament.errors.full_messages_for(:title).each do |error|
         li
           = error
 
