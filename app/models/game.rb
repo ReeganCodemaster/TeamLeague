@@ -10,15 +10,18 @@ class Game < ApplicationRecord
 
   private
   def generate_points
-    if team_1_score > team_2_score
-      self.team_1_points = 3
-      self.team_2_points = 0
-    elsif team_1_score = team_2_score
-      self.team_1_points = 1
-      self.team_2_points = 1
-    else
-      self.team_2_points = 3
-      self.team_1_points = 0
-    end 
+    if self.team_1_score != nil and self.team_2_score != nil
+
+      if self.team_1_score > team_2_score
+        self.team_1_points = 3
+        self.team_2_points = 0
+      elsif team_1_score == team_2_score
+        self.team_1_points = 1
+        self.team_2_points = 1
+      else
+        self.team_2_points = 3
+        self.team_1_points = 0
+      end 
+    end
   end
 end
