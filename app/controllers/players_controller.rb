@@ -3,13 +3,11 @@ class PlayersController < ApplicationController
   before_action :set_team
 
   def new  
-    @team = Team.find(params[:team_id])
     @player = @team.players.new()
     @coordinator = @team.password == params[:password] ? true : false
   end
 
   def create
-    @team = Team.find(params[:team_id])
     @player = @team.players.new(player_params)
 
     if @player.save
