@@ -9,8 +9,5 @@ Rails.application.routes.draw do
 
   resources :games
 
-  resources :tournaments do 
-    get :new_game, on: :member
-    post :create_game , on: :member
-  end
+  resources :tournaments
 end
