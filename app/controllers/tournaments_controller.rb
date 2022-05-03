@@ -17,6 +17,8 @@ class TournamentsController < ApplicationController
 
     points_service = PointsService.new
     @points = points_service.call
+
+    @games = @tournament.games.all
   end
   def new_game 
     @game = @tournament.games.new()
