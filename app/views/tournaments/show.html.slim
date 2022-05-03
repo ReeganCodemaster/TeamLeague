@@ -1,5 +1,4 @@
 h1 #{@tournament.title}
-- history = []
 - @rounds.times do |num|
   h2 Round #{num+1}
   table class='table table-stripped'
@@ -11,12 +10,6 @@ h1 #{@tournament.title}
         th Team2 score
         th
     tbody class='table-success'
-    - @teams.length.times do |match_up| 
-      - if (match_up + 1) % 2 == 1 
-        tr
-        = render 'game', {match_up:match_up, history:history}
-        - history << [@teams[match_up][0],@teams[match_up+1][0]]
-    end
   br
 
 = link_to 'Edit tournament', edit_tournament_path(@tournament), class:'btn btn-md btn-success'
