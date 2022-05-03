@@ -1,36 +1,39 @@
 = form_with model: game do |form|
   div class='mb-3'
-    =form.label :team_1_id
+    =form.label :team_1_id, class:'form-label'
     br
-    =form.select :team_1_id , Team.pluck(:title, :id)
+    =form.select :team_1_id , Team.pluck(:title, :id), class:'form-select'
     ul
-    - game.errors.full_messages_for(:team_1_id).each do |error|
-      li class='list-group-item'
-        = error
+      - game.errors.full_messages_for(:team_1_id).each do |error|
+        li
+          = error
 
   div class='mb-3'
-    =form.label :team_2_id
+    =form.label :team_2_id,class:'form-select'
     br
-    =form.select :team_2_id , Team.pluck(:title, :id)
-    - game.errors.full_messages_for(:team_2_id).each do |error|
-      li class='list-group-item'
-        = error
+    =form.select :team_2_id , Team.pluck(:title, :id),class:'form-select'
+    ul
+      - game.errors.full_messages_for(:team_2_id).each do |error|
+        li
+          = error
 
   div class='mb-3'
     =form.label :team_1_score, class:'form-label'
     br
     =form.number_field :team_1_score, class:'form-control'
-    - game.errors.full_messages_for(:team_1_score).each do |error|
-      li class='list-group-item'
-        = error
+    ul
+      - game.errors.full_messages_for(:team_1_score).each do |error|
+        li
+          = error
 
   div class='mb-3'
     =form.label :team_2_score, class:'form-label'
     br
     =form.number_field :team_2_score, class:'form-control'
-    - game.errors.full_messages_for(:team_2_score).each do |error|
-      li class='list-group-item'
-        = error
+    ul
+      - game.errors.full_messages_for(:team_2_score).each do |error|
+        li
+          = error
 
   div class='mb-3'
     = form.submit 'Submit', class:'btn btn-md btn-success'
