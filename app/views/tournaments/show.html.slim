@@ -1,19 +1,20 @@
 h1 #{@tournament.title}
-/ - @rounds.times do |num| 
-div class='round'
-  / h2 Round #{num+1}
-  table class='table table-stripped'
-    thead class='table-dark'
-      tr
-        th Team1
-        th Team2
-        th Team1 score
-        th Team2 score
-        th
-    tbody class='table-success'
-    -@games.each do |game|
-      - render 'game', game:game
-    br
+table class='table table-stripped'
+  thead class='table-dark'
+    tr
+      th Team1
+      th Team2
+      th Team1 score
+      th Team2 score
+      th
+  tbody class='table-success'
+  - @games.each do |game|
+    tr
+      td #{Team.find(game.team_1_id).title} 
+      td #{Team.find(game.team_2_id).title}
+      td #{game.team_1_score}
+      td #{game.team_2_score}
+  br
 
 br
 = link_to 'Edit tournament', edit_tournament_path(@tournament), class:'btn btn-md btn-success'
