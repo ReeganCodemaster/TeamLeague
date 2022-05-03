@@ -1,21 +1,26 @@
 h1 #{@tournament.title}
 - @rounds.times do |num|
-  h2 Round #{num+1}
-  table class='table table-stripped'
-    thead class='table-dark'
-      tr
-        th Team1
-        th Team2
-        th Team1 score
-        th Team2 score
-        th
-    tbody class='table-success'
-    -@games.each do |game|
-      -if @games.index(game) <= @team_num/2
-        = render 'game', game:game 
+  div class='round'
+    h2 Round #{num+1}
+    table class='table table-stripped'
+      thead class='table-dark'
+        tr
+          th Team1
+          th Team2
+          th Team1 score
+          th Team2 score
+          th
+      tbody class='table-success'
+      -@games.each do |game|
+        -if @games.index(game) <= @team_num/2
+          = render 'game', game:game
+        - if @games.index(game) < @team_num/2
+          = link_to 'Create a game', "/tournaments/#{@tournament.id}/new_game"
 
-  br
-
+    - if @games.length == 0 
+      = link_to 'Create a game', "/tournaments/#{@tournament.id}/new_game", class:'btn btn-md btn-success'
+    br
+br
 = link_to 'Edit tournament', edit_tournament_path(@tournament), class:'btn btn-md btn-success'
 br
 = link_to 'Delete tournament', tournament_path(@tournament), data:{turbo_method:'delete', tirbo_confirm:'Are you sure?'}, class:'btn btn-md btn-success'
