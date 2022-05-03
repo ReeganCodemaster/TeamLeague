@@ -7,9 +7,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :games do
-    get :tournament, on: :collection
-  end
+  resources :games
 
   resources :tournaments
 end

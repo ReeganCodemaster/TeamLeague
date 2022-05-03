@@ -37,28 +37,6 @@ class GamesController < ApplicationController
     redirect_to games_path(@game)
   end
 
-  def tournament
-
-    point_service = PointsService.new() 
-
-    @match_ups =  Hash.new 
-    @team_num = params[:team_num] 
-    if @team_num != nil  
-      k = 0
-      prev_team = ''
-      @points.each do |team|
-        k += 1  
-        if k <= @team_num.to_i
-          if k % 2 == 0
-            @match_ups[prev_team] = team[0]
-          else
-            prev_team = team[0]
-          end
-        end
-      end 
-    end
-  end
-
   private
   def set_game
     @game = Game.find(params[:id])
