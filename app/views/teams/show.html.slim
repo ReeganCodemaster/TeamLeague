@@ -1,6 +1,5 @@
-h1= @team.title
+h1 #{@team.title}
 h2 Coordinator: #{@team.coordinator}
-
 
 = link_to 'Edit team details', edit_team_path, class:'btn  btn-md btn-success', role:'button'
 br
@@ -8,10 +7,10 @@ br
 br
 ul
   = render @team.players
-
 = link_to 'Add a new player', new_team_player_path(@team),  class:'btn  btn-md btn-success', role:'button'
 br
 br
+
 h1 Games
 table class='table table-stripped'
   thead class='table-dark'
