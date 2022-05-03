@@ -49,3 +49,9 @@ input.btn {
 .btn-player {
    margin-left: 0;
  }
+
+.round {
+  border-bottom-style: solid;
+  border-bottom-color: #4e4c4e;
+}
+
