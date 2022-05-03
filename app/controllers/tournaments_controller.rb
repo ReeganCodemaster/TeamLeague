@@ -1,5 +1,5 @@
 class TournamentsController < ApplicationController
-  before_action :set_tournament, only: %i[show edit update destroy]
+  before_action :set_tournament, only: %i[show edit update destroy new_game]
   
   def index
     @tournaments = Tournament.all
@@ -17,6 +17,18 @@ class TournamentsController < ApplicationController
 
     points_service = PointsService.new
     @points = points_service.call
+  end
+  def new_game 
+    @game = @tournament.games.new()
+  end
+  
+  def create_game 
+    @game = @tournament.games.new(game_params)
+    if @game.save
+      redirect_to @tournament
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
   
   def new
@@ -54,5 +66,9 @@ class TournamentsController < ApplicationController
   
   def tournament_params
     params.require(:tournament).permit(:title, :team_num)
+  end
+
+  def game_params
+    params.require(:game).permit(:team_1_id, :team_2_id, :team_1_score, :team_2_score)
   end
 end
