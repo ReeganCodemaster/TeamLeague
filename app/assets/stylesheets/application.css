@@ -22,15 +22,18 @@ h1, h2{
   margin-right:35%;
   margin-left:35%;
 }
+
 .btn {
   display: block;
   margin-right:35%;
   margin-left:35%;
 }
+
 .table-button {
   margin-right:auto;
   margin-left:auto;
 }
+
 form {
   margin-right:35%;
   margin-left:35%;
@@ -43,9 +46,11 @@ form {
 input.btn {
   margin-left: 0;
 }
+
 .player {
   text-align: left;
 }
+
 .btn-player {
    margin-left: 0;
  }
