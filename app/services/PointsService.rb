@@ -13,5 +13,4 @@ class PointsService
     end
     total_points = total_points.sort_by{|key, value| value}.reverse 
   end
-  
 end
