@@ -19,7 +19,7 @@
   div class='mb-3'
     = form.label :password, class:'form-label'
     br
-    = form.text_field :password, class:'form-control'
+    = form.password_field :password, class:'form-control'
     ul
       - team.errors.full_messages_for(:password).each do |error|
         li
