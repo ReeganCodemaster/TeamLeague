@@ -10,6 +10,10 @@ h1 #{@tournament.title}
         th Team2 score
         th
     tbody class='table-success'
+    -@games.each do |game|
+      -if @games.index(game) <= @team_num/2
+        = render 'game', game:game 
+
   br
 
 = link_to 'Edit tournament', edit_tournament_path(@tournament), class:'btn btn-md btn-success'
