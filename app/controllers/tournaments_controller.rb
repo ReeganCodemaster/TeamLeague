@@ -1,5 +1,5 @@
 class TournamentsController < ApplicationController
-  before_action :set_tournament, only: %i[show edit update destroy new_game]
+  before_action :set_tournament, only: %i[show edit update destroy]
   
   def index
     @tournaments = Tournament.all
@@ -7,30 +7,7 @@ class TournamentsController < ApplicationController
   
   def show 
     @team_num = @tournament.team_num
-    
-    # working out how manny rounds in a tournament Note fact is factoral eg: 2!(2 factoral)
-    team_fact = @tournament.team_num
-  	team_fact = @tournament.team_num.downto(1) {|x| team_fact *= x }
-    composite_fact = (@tournament.team_num - (@tournament.team_num - 1))
-    composite_fact = (@tournament.team_num - (@tournament.team_num - 1)).downto(1) {|x| composite_fact *= x }
-    @rounds = team_fact / (2 * composite_fact)
-
-    points_service = PointsService.new
-    @points = points_service.call
-
-    @games = @tournament.games.all
-  end
-  def new_game 
-    @game = @tournament.games.new()
-  end
-  
-  def create_game 
-    @game = @tournament.games.new(game_params)
-    if @game.save
-      redirect_to @tournament
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @games = @tournament.games
   end
   
   def new
@@ -44,6 +21,15 @@ class TournamentsController < ApplicationController
       redirect_to @tournament
     else
       render :new, status: :unprocessable_entity
+    end
+
+    points_service = PointsService.new
+    @points = points_service.call
+    @points.length/2.times do
+      last_index = @points.length-1
+      @tournament.games.create(team_1_id:@points[0][0], team_2_id:@points.last[0])
+      @points.shift
+      @points.pop
     end
   end
   
