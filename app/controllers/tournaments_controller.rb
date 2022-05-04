@@ -25,7 +25,7 @@ class TournamentsController < ApplicationController
 
     points_service = PointsService.new
     @points = points_service.call
-    @points.length/2.times do
+    while @points.length > 0 and @tournament.team_num < @points.length
       last_index = @points.length-1
       @tournament.games.create(team_1_id:@points[0][0], team_2_id:@points.last[0])
       @points.shift
