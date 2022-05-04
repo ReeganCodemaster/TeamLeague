@@ -20,13 +20,10 @@ class GamesController < ApplicationController
     end
   end
 
-  def edit
-    @team = params[:team_id]
-  end
-
   def update
+    @team = params[:team_id]
     if @game.update(game_params)
-      redirect_to @team
+      redirect_to @game.team_1
     else
       render :edit, status: :unprocessable_entity
     end
