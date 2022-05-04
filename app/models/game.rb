@@ -5,6 +5,9 @@ class Game < ApplicationRecord
 
   before_save :generate_points
 
+
+  validates :team_1_id, presence:true
+  validates :team_2_id, presence:true
   validates :team_1_score, numericality: {greater_than_or_equal_to: 0, allow_nil:true}
   validates :team_2_score, numericality: {greater_than_or_equal_to: 0, allow_nil:true}
 
