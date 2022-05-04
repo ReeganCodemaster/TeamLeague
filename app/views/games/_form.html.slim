@@ -9,7 +9,7 @@
           = error
 
   div class='mb-3'
-    =form.label :team_2_id,class:'form-select'
+    =form.label :team_2_id,class:'form-label'
     br
     =form.select :team_2_id , Team.pluck(:title, :id),class:'form-select'
     ul
