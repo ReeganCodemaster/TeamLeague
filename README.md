@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To use this application you should be running either mac OSX or a linux distrabution
 
-Things you may want to cover:
 
-* Ruby version
+## Ruby version
+ The ruby version used in this project is `ruby 2.7.2p137`
 
-* System dependencies
+## Rails version
+The Rails version used ofr this project is `Rails 7.0.2.3`
 
-* Configuration
+* Database information
+This project usses `sqlite 3.28.0` 
 
-* Database creation
+## Configuration
+ After instaling all the correct dependencies listed above do the following: 
 
-* Database initialization
+  1.Enter `bundle install` into the terminal in working directory
 
-* How to run the test suite
+  2.Enter  `raild db:migrate` into the terminal
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
